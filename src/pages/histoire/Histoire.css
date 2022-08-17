@@ -1,0 +1,24 @@
+.histoire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background: #d5d6d8;
+    padding-bottom: 20px;
+}
+.histoire-container {
+    /* justify-content: center; */
+    align-items: center;
+    width: 95%;
+    height: 100%;
+}
+h1{
+    text-align: center;
+}
+.alinea {
+    text-indent: 20px;
+}
+.source {
+    color: blue;
+}

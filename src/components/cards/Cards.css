@@ -1,0 +1,49 @@
+.cards {
+  padding: 2rem;
+}
+.cards .contenu {
+  display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    align-items: center;
+
+}
+.cards .contenu .box {
+    width: 350px;
+    height: 20vh;
+    margin: 10px;
+    border: 2px solid #2C2576;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 40px;
+    box-shadow: 20px 15px 35px rgba(0, 0, 0, 0.8);
+}
+.cards .contenu .box:hover {
+  background: #4A4B55;
+}
+.fa-medkit,
+.fa-tree , 
+.fa-person-walking,
+.fa-icons,
+.fa-user-graduate,
+.fa-calendar-days{
+  font-size: 40px;
+  color: #2C2576;
+  margin-top: 8px;
+}
+.navitem {
+  margin-top: 10px;
+  text-align: center;
+  color: #2C2576;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+
+}
+.navitem:hover {
+  color: #76254B;
+}

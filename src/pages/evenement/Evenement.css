@@ -1,0 +1,14 @@
+.cards {
+    padding: 4rem;
+    background: #d5d6d8;
+  }
+  
+
+  .cards__container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 1120px;
+    width: 90%;
+    margin: 0 auto;
+  }
