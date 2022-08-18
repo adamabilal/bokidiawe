@@ -10,7 +10,7 @@ function Visite() {
                 <br />
                 <ReactPlayer url="https://www.youtube.com/watch?v=7manCnS9-a4&ab_channel=TidianeMangassouba" />
                 <br />
-                <p>Vidéo réalisée en <span className='auteur'>2014</span>  par <span className='auteur'> Tidiane Mangassouba.</span></p> 
+                <p>Vidéo réalisée en <span className='auteur'>2013</span>  par <span className='auteur'> Tidiane Mangassouba.</span></p> 
         </div>
     </div>
   )

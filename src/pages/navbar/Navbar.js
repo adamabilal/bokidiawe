@@ -1,119 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import {FiAlignRight,FiXCircle,FiChevronDown } from "react-icons/fi";
 import logo from '../../images/img1.jpg'
-import Dropdown from './Dropdown';
-import Dropdown1 from './Dropdown1';
+import '../../App.css'
 
-function Navbar() {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-  const [dropdown, setDropdown] = useState(false);
-  const [dropdown1, setDropdown1] = useState(false);
-
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
+function Navbar() {  
+  const [isMenu, setisMenu] = useState(false);
+  const [isResponsiveclose, setResponsiveclose] = useState(false);
+  const toggleClass = () => {
+    setisMenu(isMenu === false ? true : false);
+    setResponsiveclose(isResponsiveclose === false ? true : false);
+};
+  let boxClass = ["main-menu menu-right menuq1"];
+  if(isMenu) {
+      boxClass.push('menuq2');
+  }else{
+      boxClass.push('');
+  }
+  const [isMenuSubMenu, setMenuSubMenu] = useState(false);
+  const toggleSubmenu = () => {
+    setMenuSubMenu(isMenuSubMenu === false ? true : false);
   };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener('resize', showButton);
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
-  const onMouseEnter1 = () => {
-    if (window.innerWidth < 960) {
-      setDropdown1(false);
-    } else {
-      setDropdown1(true);
-    }
-  };
-
-  const onMouseLeave1 = () => {
-    if (window.innerWidth < 960) {
-      setDropdown1(false);
-    } else {
-      setDropdown1(false);
-    }
-  };
+  let boxClassSubMenu = ["sub__menus"];
+  if(isMenuSubMenu) {
+      boxClassSubMenu.push('sub__menus__Active');
+  }else {
+      boxClassSubMenu.push('');
+  }
 
   
 
   return (
-    <>
-      <nav className='navbar'>
-        <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src={logo} alt="" />
-            {/* BOKIDIAWÉ */}
-          </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Accueil
-              </Link>
-            </li>
-            <li className='nav-item' onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}>
-              <Link
-                to='/'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Découvrir Bokidiawé
-                <i className="fa fa-angle-down" />
-              </Link>
-              {dropdown && <Dropdown/>}
-            </li>
-            <li className='nav-item' onMouseEnter={onMouseEnter1}
-            onMouseLeave={onMouseLeave1}>
-              <Link
-                to='/'
-                className='nav-links'
-                onClick={closeMobileMenu} 
-              >
-                La Mairie
-                <i className="fa fa-angle-down" />
-              </Link>
-              {dropdown1 && <Dropdown1/>}
-            </li>
-            <li className='nav-item'>
-              <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-                Contact
-              </Link>
-            </li>
+    <header className="header__middle">
+    <div className="container">
+        <div className="row">
 
-          </ul>
+            {/* Add Logo  */}
+            <div className="header__middle__logo">
+                <Link exact activeClassName='is-active' to="/">
+                    <img src={logo} alt="logo" /> 
+                </Link>
+            </div>
+
+            <div className="header__middle__menus">
+                <nav className="main-nav " >
+
+                {/* Responsive Menu Button */}
+                {isResponsiveclose === true ? <> 
+                    <span className="menubar__button" style={{ display: 'none' }} onClick={toggleClass} > <FiXCircle />   </span>
+                </> : <> 
+                    <span className="menubar__button" style={{ display: 'none' }} onClick={toggleClass} > <FiAlignRight />   </span>
+                </>}
+
+
+                <ul className={boxClass.join(' ')}>
+                <li  className="menu-item" >
+                    <Link exact activeClassName='is-active' onClick={toggleClass} to={`/`}> Accueil </Link> 
+                </li>
+                <li onClick={toggleSubmenu} className="menu-item sub__menus__arrows" > <Link to={`/`}> Découvrir Bokidiawé <FiChevronDown /> </Link>
+                    <ul className={boxClassSubMenu.join(' ')} > 
+                        <li> <Link onClick={toggleClass} activeClassName='is-active'  to={`/histoire`}> Histoire </Link> </li>
+                        <li><Link onClick={toggleClass} activeClassName='is-active' to={`/visite`}> Visite en vidéo </Link> </li>
+                    </ul>
+                </li>
+                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to={`/gouvernement`}> La Mairie </Link> </li>
+                <li className="menu-item " ><Link onClick={toggleClass} activeClassName='is-active' to={`/Contact`}> Contact </Link> </li>
+
+                </ul>
+
+
+                </nav>     
+            </div>   
+
+
+
+    
+    
         </div>
-      </nav>
-    </>
+  </div>
+</header>
+
   );
+  
 }
 
 export default Navbar;

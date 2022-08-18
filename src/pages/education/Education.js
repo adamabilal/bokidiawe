@@ -11,7 +11,7 @@ function Education() {
     <br />
       <ul className='cards__items'>
         <CardItem src='images/edu-1.jpg'
-          text="EFA BOKIDIAWÉ : Remerciements M.Kalilou wagué maire de la commune de Bokidiawé,a offert 3 salles de classe à mon établissement.Ainsi,les abris provisoires sont devenus de mauvais souvenirs dans cette école.Encore une fois merci au nom de toute l'équipe pédagogique."
+          text="EFA BOKIDIAWÉ : Remerciements M.Kalilou wagué maire de la commune de Bokidiawé,  qui a offert 3 salles de classe à mon établissement.Ainsi,les abris provisoires sont devenus de mauvais souvenirs dans cette école.Encore une fois merci au nom de toute l'équipe pédagogique."
           label='Construction des salles de classe'
           path='#'
         />

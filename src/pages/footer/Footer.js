@@ -28,8 +28,7 @@ function Footer() {
           </div>
           <div className='footer-link-items'>
             <h2>Partenaires techniques:</h2>
-            <Link to='/'>-  Service Régional de l’Hydraulique
-Hydraulique Sans Frontières</Link>
+            <Link to='/'>-  Service Régional de l’Hydraulique Sans Frontières</Link>
           
           </div>
         </div>
